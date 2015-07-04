@@ -21,7 +21,7 @@ SECRET_KEY = 'l181tg6ci=8k1fj3di5v^+r-v9102@5svx51ofm0+o6^!yb_$@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-#DEBUG = True
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -30,6 +30,8 @@ ALLOWED_HOSTS = [
     '.fts.me',
     '.cby.me.',
     '.fts.me.',
+    '127.0.0.1',
+    'localhost',
 ]
 
 
@@ -44,13 +46,16 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'markdown_deux',
     'pagedown',
-    'django_jinja',
-    'debug_toolbar',
+    'corsheaders',
+    #'django_jinja',
+    #'debug_toolbar',
     'aboutme',
 )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -103,6 +108,11 @@ TEMPLATES = [
     },
 ]
 
+
+CORS_ORIGIN_WHITELIST = (
+    'ajax.aspnetcdn.com',
+    'cdn.jsdelivr.net'
+)
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )

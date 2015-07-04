@@ -3,30 +3,20 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="scripts/bootstrap.min.css" />
-	<link rel="stylesheet" href="scripts/bootstrap-theme.min.css" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="scripts/style-cby.css" />
-	<!--[if lt IE 10]>
-		<link rel="stylesheet" href="scripts/fix-ie9.css" />
-	<![endif]-->
-	<!--[if lt IE 9]>
-		<script type="text/javascript" src="scripts/html5shiv-printshiv.min.js"></script>
-		<script type="text/javascript" src="scripts/respond.min.js"></script>
-	<![endif]-->
-	<!--[if lt IE 8]>
-		<link rel="stylesheet" href="scripts/bootstrap-ie7.css" />
-		<link rel="stylesheet" href="scripts/fix-ie7.css" />
-	<![endif]-->
-	<!--[if lt IE 7]>
-		<link rel="stylesheet" href="scripts/fix-ie6.css" />
-	<![endif]-->
+	<!--[if lt IE 10]><link rel="stylesheet" href="scripts/fix-ie9.css" /><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="scripts/iefix.js"></script><![endif]-->
 	<title>{% block title %}{{ title }}{% endblock %}</title>
 	<style>
 		</style>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
-<div class="container-fluid">
+<div class="container">
 <div class="navbar-header"><a class="navbar-brand glyphicon glyphicon-home" href="/"></a>
 <a class="navbar-brand">{{ title }}</a></div>
 <div class="navbar-right"><ul class="nav navbar-nav">
@@ -36,18 +26,12 @@
 </ul></div></div></nav>
 <a id="top"></a>
 <div class="container">
-<!--[if lt IE 8]>
-<div class="alert alert-danger">
-<span class="glyphicon glyphicon-warning-sign glyphicons-lg"></span><div>PAGE MAY NOT DISPLAY CORRECTLY IN OLD BROWSERS!<br />
-Please upgrade your web browser.<br />
-<a href="http://windows.microsoft.com/internet-explorer/download-ie">Internet Explorer</a> | <a href="https://www.mozilla.org/firefox/">Firefox</a> | <a href="https://www.google.com/chrome/browser">Google Chrome</a> | <a href="http://www.opera.com/">Opera</a></div></div>
-<![endif]-->
 {% block content %}
 {{ text_html|safe }}
 {% endblock %}
 </div>
-<script type="text/javascript" src="scripts/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="scripts/script-cby.js"></script>
 </body>
 </html>

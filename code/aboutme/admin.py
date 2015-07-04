@@ -4,6 +4,18 @@ from django.db import models
 import markdown_deux
 from aboutme.models import *
 
+from markdown_deux.conf.settings import MARKDOWN_DEUX_STYLES
+from markdown_deux.conf import settings
+MARKDOWN_DEUX_STYLES.update ({
+    "trusted": {
+        "extras": {
+            "code-friendly": None,
+        },
+        # Allow raw HTML (WARNING: don't use this for user-generated
+        # Markdown for your site!).
+        "safe_mode": False,
+    },
+})
 # Register your models here.
 class PagesAdmin(admin.ModelAdmin):
 	fieldsets = (
@@ -17,7 +29,7 @@ class PagesAdmin(admin.ModelAdmin):
 		models.TextField: {'widget': AdminPagedownWidget },
 	}
 	def save_model(self, request, obj, form, change):
-		obj.text_html = markdown_deux.markdown(obj.text)
+		obj.text_html = markdown_deux.markdown(obj.text, "trusted")
 		obj.save()
 
 admin.site.register(Pages, PagesAdmin)

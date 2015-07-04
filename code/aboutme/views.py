@@ -13,7 +13,7 @@ def main(request):
 	try:
 		pageobj=Pages.objects.get(uri=req1)
 		t = loader.get_template('home.html')
-		c = {'title': pageobj.title, 'text_html': pageobj.text_html}
+		c = Context({'title': pageobj.title, 'text_html': pageobj.text_html})
 		resp=HttpResponse(t.render(c))
 		return resp
 
